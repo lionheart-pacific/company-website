@@ -5,7 +5,7 @@ export default function Counter() {
 
     return (
         <>
-            <div className="text-lg bg-red-500">
+            <div className="text-h1 bg-brand-primary">
                 test
             </div>
             <div style={{padding: '20px', border: '1px solid #ccc', borderRadius: '8px'}}>
