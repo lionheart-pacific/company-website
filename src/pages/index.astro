@@ -5,8 +5,63 @@ import HeroSection from '../components/HeroSection.astro';
 import LetsTalkSection from "../components/LetsTalkSection.astro";
 ---
 
-<Layout>
+<Layout hasNavbar={false}>
 	<HeroSection/>
+	<section class="flex flex-col
+	px-6 py-11 gap-4
+	md:p-24 md:gap-5">
+		<div class="flex flex-col border-b-brand-light-gray border-b gap-4 pb-7">
+			<div class="text-overline uppercase text-brand-primary">
+				Lionheart Pacific
+			</div>
+			<div class="text-2xl md:text-h2">
+				We’re unusually good at building software.
+			</div>
+			<div class="text-sm md:text-subtitle1 font-normal text-brand-dark-gray">
+				That isn’t luck. It comes from how we work — pairing, test-driven development, continuous delivery, and
+				engineers who think about product and design. These are the practices that separate excellent teams from
+				merely competent ones.
+			</div>
+			<div class="text-overline text-brand-primary">
+				See how we work →
+			</div>
+		</div>
+		<div class="flex flex-col gap-4">
+			<div class="text-2xl md:text-h2">
+				And it’s built to last.
+			</div>
+			<div class="text-sm md:text-subtitle1 text-brand-dark-gray">
+				You get the quality you’d expect from a premium firm — at a cost you can sustain for the long run. It comes from stable, dedicated teams; a delivery model built to last; and engineers in Thailand working with a U.S.-based Delivery Lead who stays close to your priorities.
+			</div>
+			<div class="text-overline text-brand-primary">
+				Our approach  →
+			</div>
+		</div>
+	</section>
+	<section class="flex flex-col
+	px-6 py-11 gap-4
+	md:p-24
+	border-t-brand-light-gray border-t">
+		<div class="flex flex-col gap-4">
+			<div class="text-overline uppercase">
+				What we do
+			</div>
+			<div class="text-2xl md:text-h2">
+				Product Development
+			</div>
+			<div class="text-sm md:text-subtitle1 text-brand-dark-gray">
+				A team that takes ownership of meaningful work alongside you — without you building and managing a software organization to do it.
+			</div>
+			<div class="text-sm md:text-subtitle1 text-brand-mid-gray">
+				For organizations where software has become core to the business — and who want a team they can hand it to, that stays aligned with their priorities.
+			</div>
+			<div class="text-overline text-brand-primary">
+				Explore services  →
+			</div>
+		</div>
+	</section>
+
+
 	<LetsTalkSection/>
-	<Services/>
+	<!--<Services/>-->
 </Layout>

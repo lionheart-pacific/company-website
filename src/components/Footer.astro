@@ -1,0 +1,27 @@
+---
+import Logo from "./Logo.astro";
+---
+<footer id="footer" class="w-full
+    px-6 py-9 flex
+    md:px-24 md:py-16
+    flex-col justify-start items-center
+    md:flex-row md:justify-between">
+    <div class="flex flex-col h-fit gap-x-3 md:gap-y-3">
+        <Logo color="text-brand-primary" height={22} width={48} fontSize={22} lineHeight={22}/>
+        <div class="text-[13px] text-brand-mid-gray">© 2026 · Lionheart Pacific</div>
+    </div>
+    <div class="flex flex-row md: md:flex-col h-fit gap-3">
+        <h1 class="hidden md:block text-[13px] text-brand-mid-gray">
+            EXPLORE
+        </h1>
+        <div class="text-[13px] text-brand-ink">
+            Practices
+        </div>
+        <div class="text-[13px] text-brand-ink">
+            Services
+        </div>
+        <div class="text-[13px] text-brand-ink">
+            Contact
+        </div>
+    </div>
+</footer>
