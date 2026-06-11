@@ -1,20 +1,21 @@
 ---
 import SeaPattern from "../assets/sea-pattern.svg";
 ---
-<div class="h-100 bg-brand-primary relative text-brand-concrete">
+<div class="h-90 bg-brand-primary relative text-brand-concrete">
     <div style={{'--pattern-url': `url(${SeaPattern.src})`}}
-         class="h-100 w-full bg-[#1A3D67] absolute top-0
+         class="h-90 w-full bg-[#1A3D67] absolute top-0
              mask-(--pattern-url) mask-repeat mask-center mask-size-[auto_calc(100%/2)]"
     >
     </div>
-    <div class="relative flex flex-col h-full justify-center items-center gap-3">
-        <div class="text-h1 font-semibold">
+    <div class="relative flex flex-col h-full justify-center items-center gap-3
+    p-6 text-center">
+        <div class="text-3xl md:text-h1 font-semibold">
             Let's talk.
         </div>
-        <div class="text-subtitle1 font-normal">
+        <div class="text-sm md:text-subtitle1 font-normal">
             The best way to know if we’re a fit is to talk it through.
         </div>
-        <div class="bg-white rounded-sm text-brand-primary w-fit py-3 px-6.25">
+        <div class="text-sm md:text-subtitle1 bg-white rounded-sm text-brand-primary w-fit py-3 px-6.25">
             Schedule a call
         </div>
     </div>

@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import NavBar from "../components/NavBar.astro";
 import Logo from '../components/Logo.astro';
+import Footer from '../components/Footer.astro';
 interface Props {
     hasNavbar: boolean;
 }
@@ -24,26 +25,7 @@ const { hasNavbar } = Astro.props;
 <body class="font-Figtree">
 {hasNavbar && <NavBar/>}
 <slot/>
-<footer id="footer" class="w-full px-24 py-16 flex flex-row justify-between items-center">
-    <div class="flex flex-col h-fit gap-y-3">
-        <Logo color="text-brand-primary" height={22} width={48} fontSize={22} lineHeight={22}/>
-        <div class="text-[13px] text-brand-mid-gray">© 2026 · Lionheart Pacific</div>
-    </div>
-    <div class="flex flex-col h-fit gap-y-3">
-        <h1 class="text-[13px] text-brand-mid-gray">
-            EXPLORE
-        </h1>
-        <div class="text-[13px] text-brand-ink">
-            Practices
-        </div>
-        <div class="text-[13px] text-brand-ink">
-            Services
-        </div>
-        <div class="text-[13px] text-brand-ink">
-            Contact
-        </div>
-    </div>
-</footer>
+<Footer/>
 </body>
 </html>
 
