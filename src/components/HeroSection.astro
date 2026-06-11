@@ -1,10 +1,28 @@
 ---
 import oceanImage from '../assets/ocean.jpg'
 import {Picture} from "astro:assets";
+import WaveMark from  '../assets/wave-mark.svg'
+import Layout from "../layouts/Layout.astro";
+import Services from "./Services.tsx";
+import LetsTalkSection from "./LetsTalkSection.astro";
+import Logo from './Logo.astro';
 ---
 
 <div class="bg-white dark:bg-gray-900">
     <div class="relative isolate overflow-hidden pt-14">
+        <div class=" w-full px-24 py-5 flex flex-row justify-items-end bg-transparent justify-end">
+            <div class="flex flex-row gap-x-2 items-center">
+                <h1 class="text-[13px] text-brand-concrete">
+                    Practices
+                </h1>
+                <h1 class="text-[13px] text-brand-concrete">
+                    Services
+                </h1>
+                <h1 class="text-[13px] text-brand-concrete border-brand-concrete border rounded-sm p-2">
+                    Let's talk
+                </h1>
+            </div>
+        </div>
         <Picture
                 src={oceanImage}
                 alt=""
@@ -19,14 +37,12 @@ import {Picture} from "astro:assets";
         text-brand-concrete
         items-end
         ">
-            <div>
-                logo
-            </div>
-            <div class="flex flex-col border-l-brand-concrete border-l pl-13">
-                <div class="text-h2">
+            <Logo/>
+            <div class="flex flex-col border-l-brand-concrete border-l pl-13 gap-y-4">
+                <div class="text-h2 leading-13">
                     A dependable software team you can plan your business around.
                 </div>
-                <div class="text-subtitle1">
+                <div class="text-subtitle1 font-thin">
                     Lionheart Pacific provides exceptional, ongoing product development through principled engineering
                     practices.
                 </div>

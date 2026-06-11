@@ -1,11 +1,18 @@
 @import "tailwindcss";
 
 @font-face {
-    font-family: 'Figtree';
-    src: url('/fonts/CustomFont-Regular.woff2') format('woff2');
+    font-family: 'Monley';
+    src: url('../assets/fonts/monley.woff') format('woff');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
+}
+
+@font-face {
+    src: url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap') format('woff');
+    font-family: "Figtree";
+    font-weight: 300 900;
+    font-style: normal;
 }
 
 @theme {
@@ -19,6 +26,9 @@
     --color-brand-mid-gray: #8C94A1;
     /*text dark gray*/
     --color-brand-dark-gray: #5C6675;
+
+    --font-logo: 'Monley';
+    --font-Figtree: 'Figtree';
 
     /*Sample from service page*/
     /*Product development, as an ongoing capability.*/
