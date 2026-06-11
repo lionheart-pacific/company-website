@@ -1,0 +1,13 @@
+---
+import SeaPattern from "../assets/sea-pattern.svg";
+---
+<div class="h-100 bg-brand-primary relative text-brand-concrete">
+    <div style={{'--pattern-url': `url(${SeaPattern.src})`}}
+         class="h-100 w-full bg-[#1A3D67] absolute top-0
+             mask-(--pattern-url) mask-repeat mask-center mask-size-[auto_calc(100%/2)]"
+    >
+    </div>
+    <div class="relative">
+        hello from inside the waves
+    </div>
+</div>

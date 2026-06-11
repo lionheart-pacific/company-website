@@ -34,7 +34,7 @@ export default function Services() {
 
                 <div className="grid grid-cols-2 gap-6">
 
-                {productDevelopments.map((item, i) => (
+                {productDevelopments.map((item) => (
                     <div className="bg-brand-concrete p-9 gap-2 flex flex-col rounded-md">
                         <div className="text-brand-ink text-[19px] font-semibold">{item.label}</div>
                         <div className="text-brand-dark-gray text-[16px]">{item.description}</div>
