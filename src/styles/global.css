@@ -1,15 +1,7 @@
 @import "tailwindcss";
 
-@font-face {
-    font-family: 'Figtree';
-    src: url('/fonts/CustomFont-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-
 @theme {
-    --color-brand-primary: #012B5D;
+    --color-brand-primary: #65CB3E;
     --color-brand-ink: #1A1A1A;
     /*header and block background*/
     --color-brand-concrete: #F2F2F2;
