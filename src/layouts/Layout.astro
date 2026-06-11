@@ -2,6 +2,7 @@
 import '../styles/global.css'
 import Footer from '../components/Footer.astro'
 import monleyUrl from '../assets/fonts/monley.woff?url'
+import Analytics from '../components/analytics.astro'
 ---
 
 <!doctype html>
@@ -20,6 +21,7 @@ import monleyUrl from '../assets/fonts/monley.woff?url'
       href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
       rel="stylesheet"
     />
+    <Analytics />
   </head>
   <body class="font-primary">
     <slot />
