@@ -1,107 +1,133 @@
-
 ---
 import {
     Astronav,
-    MenuItems,
     MenuIcon,
+    MenuItems,
 } from "astro-navbar";
 
 const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 ---
 
-<header class="w-full px-6 md:px-24 py-5 md:flex md:flex-row justify-between items-center border-b border-brand-light-gray ">
-    <Astronav closeOnClick>
-        <div class="flex w-full md:w-auto justify-between items-center">
-            <a href="/" class="text-[18px] md:text-[24px] text-brand-primary font-logo">
-                Lionheart Pacific
-            </a>
-            <div class="block md:hidden">
-                <MenuIcon class="w-4 h-4 text-gray-800" />
-            </div>
-        </div>
-        <MenuItems class="mt-4 hidden md:mt-0 md:flex md:w-auto w-full">
-            <ul class="flex flex-col md:flex-row md:gap-7">
-                <li>
-                    <a href="/practices" class="text-[13px] text-brand-primary">
-                        Practices
-                    </a>
-                </li>
-                <li>
-                    <a href="/services" class="text-[13px] text-brand-primary">
-                        Services
-                    </a>
-                </li>
-                <li>
-                    <a href="/contact" class="text-[13px] text-white bg-brand-primary rounded-sm p-2 w-fit">
-                        Let's talk
-                    </a>
-                </li>
+<header class="w-full border-b border-brand-light-gray px-6 py-5 md:px-24">
+    <div class="relative flex justify-between" data-navbar-root>
+        <Astronav closeOnClick>
+            <div class="flex w-full items-center justify-between md:w-auto">
+                <a href="/" class="font-logo text-[18px] text-brand-primary md:text-[24px]">
+                    Lionheart Pacific
+                </a>
 
-            </ul>
-        </MenuItems>
-    </Astronav>
+                <div class="block md:hidden">
+                    <MenuIcon class="size-5 text-brand-ink" />
+                </div>
+            </div>
+
+            <MenuItems
+
+                aria-label="Primary navigation"
+                class="absolute right-0 top-full z-50 mt-3 hidden w-48 overflow-hidden rounded-sm border border-brand-light-gray bg-white shadow-lg md:static md:z-auto md:mt-0 md:flex md:w-auto md:overflow-visible md:border-0 md:bg-transparent md:shadow-none"
+            >
+                <ul class="flex flex-col md:flex-row md:items-center md:gap-7">
+                    <li class="border-b border-brand-light-gray md:border-0">
+                        <a
+                            href="/practices"
+                            aria-current={currentPath === "/practices" ? "page" : undefined}
+                            class:list={[
+                                "block px-4 py-3 text-[13px] text-brand-primary transition-colors hover:bg-brand-concrete md:p-0 md:hover:bg-transparent md:hover:underline",
+                                currentPath === "/practices" && "bg-brand-concrete md:bg-transparent md:underline",
+                            ]}
+                        >
+                            Practices
+                        </a>
+                    </li>
+
+                    <li class="border-b border-brand-light-gray md:border-0">
+                        <a
+                            href="/services"
+                            aria-current={currentPath === "/services" ? "page" : undefined}
+                            class:list={[
+                                "block px-4 py-3 text-[13px] text-brand-primary transition-colors hover:bg-brand-concrete md:p-0 md:hover:bg-transparent md:hover:underline",
+                                currentPath === "/services" && "bg-brand-concrete md:bg-transparent md:underline",
+                            ]}
+                        >
+                            Services
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="/contact"
+                            aria-current={currentPath === "/contact" ? "page" : undefined}
+                            class="block bg-brand-primary px-4 py-3 text-[13px] text-white transition-opacity hover:opacity-90 md:rounded-sm md:p-2"
+                        >
+                            Let's talk
+                        </a>
+                    </li>
+                </ul>
+            </MenuItems>
+        </Astronav>
+    </div>
 </header>
 
-<!--<header-->
-<!--        class="w-full border-b border-brand-light-gray px-6 py-5 md:flex md:items-center md:justify-between md:px-24"-->
-<!--&gt;-->
-<!--    <Astronav closeOnClick>-->
-<!--        <div class="flex w-full items-center justify-between md:w-auto">-->
-<!--            <a-->
-<!--                    href="/"-->
-<!--                    class="font-logo text-[18px] text-brand-primary md:text-[24px]"-->
-<!--            >-->
-<!--                Lionheart Pacific-->
-<!--            </a>-->
+<script>
+    let navbarPopoverController: AbortController | undefined;
 
-<!--            <div class="block md:hidden">-->
-<!--                <MenuIcon class="size-5 text-brand-ink" />-->
-<!--            </div>-->
-<!--        </div>-->
+    const initializeNavbarPopover = () => {
+        const navbarRoot = document.querySelector<HTMLElement>("[data-navbar-root]");
+        const menuButton = navbarRoot?.querySelector<HTMLButtonElement>("#astronav-menu");
+        const menuItems = navbarRoot?.querySelector<HTMLElement>("#primary-navigation");
 
-<!--        <MenuItems class="mt-4 hidden md:mt-0 md:flex md:w-auto w-full justify-items-end">-->
-<!--            <ul-->
-<!--                    class="overflow-hidden rounded-sm border border-brand-light-gray bg-white shadow-sm md:flex md:items-center md:gap-5 md:overflow-visible md:border-0 md:bg-transparent md:shadow-none"-->
-<!--            >-->
-<!--                <li class="border-b border-brand-light-gray md:border-0">-->
-<!--                    <a-->
-<!--                            href="/practices"-->
-<!--                            aria-current={currentPath === "/practices" ? "page" : undefined}-->
-<!--                            class:list={[-->
-<!--                                "block px-4 py-3 text-[13px] transition-colors hover:bg-brand-concrete md:p-0 md:hover:bg-transparent md:hover:underline",-->
-<!--                                currentPath === "/practices"-->
-<!--                                    ? "bg-brand-primary text-white md:bg-transparent md:text-brand-primary md:underline"-->
-<!--                                    : "text-brand-primary",-->
-<!--                            ]}-->
-<!--                    >-->
-<!--                        Practices-->
-<!--                    </a>-->
-<!--                </li>-->
+        if (!navbarRoot || !menuButton || !menuItems) {
+            return;
+        }
 
-<!--                <li class="border-b border-brand-light-gray md:border-0">-->
-<!--                    <a-->
-<!--                            href="/services"-->
-<!--                            aria-current={currentPath === "/services" ? "page" : undefined}-->
-<!--                            class:list={[-->
-<!--                                "block px-4 py-3 text-[13px] transition-colors hover:bg-brand-concrete md:p-0 md:hover:bg-transparent md:hover:underline",-->
-<!--                                currentPath === "/services"-->
-<!--                                    ? "bg-brand-primary text-white md:bg-transparent md:text-brand-primary md:underline"-->
-<!--                                    : "text-brand-primary",-->
-<!--                            ]}-->
-<!--                    >-->
-<!--                        Services-->
-<!--                    </a>-->
-<!--                </li>-->
+        navbarPopoverController?.abort();
+        navbarPopoverController = new AbortController();
+        const {signal} = navbarPopoverController;
 
-<!--                <li>-->
-<!--                    <a-->
-<!--                            href="#footer"-->
-<!--                            class="block px-4 py-3 text-[13px] text-brand-primary transition-colors hover:bg-brand-concrete md:rounded-sm md:bg-brand-primary md:p-2 md:text-white md:hover:bg-brand-primary"-->
-<!--                    >-->
-<!--                        Let's talk-->
-<!--                    </a>-->
-<!--                </li>-->
-<!--            </ul>-->
-<!--        </MenuItems>-->
-<!--    </Astronav>-->
-<!--</header>-->
+        menuButton.setAttribute("aria-controls", menuItems.id);
+
+        const isOpen = () => !menuItems.classList.contains("hidden");
+
+        const syncExpanded = () => {
+            menuButton.setAttribute("aria-expanded", String(isOpen()));
+        };
+
+        const closeMenu = (restoreFocus = false) => {
+            if (!isOpen()) {
+                return;
+            }
+
+            menuButton.click();
+            syncExpanded();
+
+            if (restoreFocus) {
+                menuButton.focus();
+            }
+        };
+
+        menuButton.addEventListener("click", () => queueMicrotask(syncExpanded), {signal});
+
+        document.addEventListener("pointerdown", (event) => {
+            if (event.target instanceof Node && !navbarRoot.contains(event.target)) {
+                closeMenu();
+            }
+        }, {signal});
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key !== "Escape") {
+                return;
+            }
+
+            closeMenu(true);
+        }, {signal});
+
+        menuItems.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => queueMicrotask(syncExpanded), {signal});
+        });
+
+        syncExpanded();
+    };
+
+    document.addEventListener("DOMContentLoaded", initializeNavbarPopover, {once: true});
+    document.addEventListener("astro:after-swap", initializeNavbarPopover);
+</script>
