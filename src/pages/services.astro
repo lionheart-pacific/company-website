@@ -24,35 +24,34 @@ const productDevelopments = [
 
 <Layout hasNavbar={true}>
 	<div>
-		<div class="px-24 pt-30 pb-20 flex flex-col gap-y-7 border-b border-brand-light-gray">
+		<div class="px-6 md:px-24 pt-13 md:pt-30 pb-9 md:pb-20 flex flex-col gap-y-5 md:gap-y-7  border-b border-brand-light-gray">
 			<div class="text-overline text-brand-primary uppercase font-semibold">services</div>
-			<h1 class="text-h1 text-brand-ink font-semibold">Product development, as an ongoing capability.</h1>
-			<p class="text-subtitle1 text-brand-dark-gray w-1/2">A self-managing product team that owns
+			<h1 class="text-[38px] md:text-h1 text-brand-ink font-semibold leading-[1.08]">Product development, as an ongoing capability.</h1>
+			<p class="text-[16px] md:text-subtitle1 text-brand-dark-gray w-full md:w-1/2">A self-managing product team that owns
 				meaningful
 				work
 				alongside you. It is the one service we offer today — and we intend to be exceptional at it.</p>
 		</div>
-		<div class="px-24 py-21 flex flex-col gap-7 border-b border-brand-light-gray">
+		<div class="px-6 md:px-24 py-10 md:py-21 flex flex-col gap-3 md:gap-7 border-b border-brand-light-gray">
 			<div class="text-overline text-brand-primary uppercase font-semibold">the service</div>
-			<h2 class="text-h2 text-brand-ink font-semibold">Product Development</h2>
-			<p class="text-subtitle1 text-brand-dark-gray">A dedicated, self-managing product team that
+			<h2 class="text-[26px] md:text-h2 text-brand-ink font-semibold">Product Development</h2>
+			<p class="text-[16px] md:text-subtitle1 text-brand-dark-gray">A dedicated, self-managing product team that
 				takes ownership of meaningful work and stays aligned with your business priorities — without you
 				building and managing a software organization internally.</p>
 
-			<div class="grid grid-cols-2 gap-6">
-
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
 				{productDevelopments.map((item) => (
 					<InfoCard label={item.label} description={item.description}/>
 				))}
 			</div>
 		</div>
-		<div class="px-24 pt-30 pb-20 border-b border-brand-light-gray ">
-			<div class="p-14 flex flex-row border border-dashed rounded-xl border-brand-light-gray items-center">
-				<div class="w-1/2">
+		<div class="px-6 md:px-24 pt-13 md:pt-20 pb-13 md:pb-20 border-b border-brand-light-gray ">
+			<div class="p-6 md:p-14 flex flex-col md:flex-row border border-dashed rounded-xl border-brand-light-gray items-center">
+				<div class="w-full md:w-1/2">
 					<div class="text-overline text-[#B8B8C2] uppercase font-semibold">MORE TO COME</div>
 					<h2 class="text-[24px] text-[#B8B8C2] font-semibold">Focused services, as we grow.</h2>
 				</div>
-				<div class="w-1/2 text-[17px] text-[#B8B8C2]">
+				<div class="w-full md:w-1/2 text-[17px] text-[#B8B8C2]">
 					This page is built to hold additional services over time — each one presented in the same way.
 				</div>
 			</div>
