@@ -6,29 +6,28 @@ import { CalComponent } from '../components/Cal.tsx'
 
 <Layout>
   <NavBar />
-  <div>
-    <div class="site-container pt-16 pb-12 md:pt-28 md:pb-20 flex flex-col gap-5 md:gap-7">
-      <h1 class="text-h1 text-brand-ink font-semibold">Let’s talk</h1>
-      <p class="text-body-lg text-brand-dark-gray max-w-[65ch]">
-        Tell us what you’re working on, and we’ll be straight with you about whether we’re the right
-        team for it.
-      </p>
-    </div>
+  <div class="site-container pt-16 pb-12 md:pt-28 md:pb-20 flex flex-col gap-5 md:gap-7">
+    <h1 class="text-h1 text-brand-ink font-semibold">Let’s talk</h1>
+    <p class="text-body-lg text-brand-dark-gray max-w-[65ch]">
+      The best way to know if we’re a fit is to talk it through.
+    </p>
+  </div>
 
-    <div class="site-container pt-6 pb-16 md:pb-24 flex flex-col md:flex-row gap-12">
-      <div class="flex flex-col max-w-193 gap-4 md:gap-5 w-full items-start">
-        <div class="w-full text-h3 font-semibold text-brand-ink ml-4 md:ml-7">Schedule a call</div>
+  <div class="site-container @container pt-6 pb-16 md:pb-24">
+    <div class="flex flex-col @3xl:flex-row gap-12">
+      <div class="flex flex-col gap-4 md:gap-5 @3xl:flex-2">
+        <div class="text-h3 font-semibold text-brand-ink">Schedule a call</div>
         <CalComponent client:only="react" />
       </div>
 
-      <div class="flex flex-col gap-4 md:gap-5 w-100">
+      <div class="flex flex-col gap-4 md:gap-5 @3xl:flex-1">
         <div class="text-h3 font-semibold text-brand-ink">Prefer email?</div>
         <div class="text-body text-brand-dark-gray">
-          If a call isn’t the right first step, send us a note about what you’re working on and
-          we’ll get back to you.
+          Send us a note about what you’re working on and we’ll get back to you.
         </div>
-        <div class="text-body-lg text-brand-primary font-medium">contact@lionheartpacific.com</div>
-        <div class="text-small text-brand-mid-gray">We typically reply within a day.</div>
+        <div class="text-body-lg text-brand-primary font-medium whitespace-nowrap">
+          contact@lionheartpacific.com
+        </div>
       </div>
     </div>
   </div>

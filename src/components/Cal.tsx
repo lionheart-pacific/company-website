@@ -9,7 +9,10 @@ const loadCal = async () => {
   cal('ui', {
     theme: 'light',
     cssVarsPerTheme: {
-      light: { 'cal-brand': themeColor('--color-brand-primary') },
+      light: {
+        'cal-brand': themeColor('--color-brand-primary'),
+        'cal-border-booker': themeColor('--color-brand-light-gray'),
+      },
       dark: { 'cal-brand': themeColor('--color-brand-concrete') },
     },
     hideEventTypeDetails: true,
