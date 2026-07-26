@@ -48,12 +48,7 @@ const { spacerId } = Astro.props
         <div class="group/heading relative text-h2 lg:text-h1" data-hero-heading data-stacked>
           <span class="group-data-stacked/heading:block">The dependable team</span>
           {' '}
-          <span class="group-data-stacked/heading:block">for business-critical software</span>
-          <span
-            class="absolute invisible whitespace-nowrap"
-            aria-hidden="true"
-            data-hero-heading-probe
-          >
+          <span class="group-data-stacked/heading:block" data-hero-heading-half>
             for business-critical software
           </span>
         </div>
@@ -71,14 +66,18 @@ const { spacerId } = Astro.props
 
   const initializeHeroHeading = () => {
     const heading = document.querySelector<HTMLElement>('[data-hero-heading]')
-    const probe = heading?.querySelector<HTMLElement>('[data-hero-heading-probe]')
+    const half = heading?.querySelector<HTMLElement>('[data-hero-heading-half]')
+    const context = document.createElement('canvas').getContext('2d')
 
-    if (!heading || !probe) {
+    if (!heading || !half || !context) {
       return
     }
 
     const update = () => {
-      heading.toggleAttribute('data-stacked', probe.offsetWidth <= heading.clientWidth)
+      const style = getComputedStyle(half)
+      context.font = `${style.fontStyle} ${style.fontWeight} ${style.fontSize} ${style.fontFamily}`
+      const width = context.measureText(half.textContent?.trim() ?? '').width
+      heading.toggleAttribute('data-stacked', width * 1.02 <= heading.clientWidth)
     }
 
     heroHeadingObserver?.disconnect()
