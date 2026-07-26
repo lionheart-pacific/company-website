@@ -29,9 +29,6 @@ importers:
       astro-navbar:
         specifier: ^2.4.0
         version: 2.4.0
-      clsx:
-        specifier: ^2.1.1
-        version: 2.1.1
       react:
         specifier: ^19.2.7
         version: 19.2.7

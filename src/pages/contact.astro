@@ -5,35 +5,30 @@ import CalComponent from '../components/Cal.jsx'
 
 <Layout hasNavbar={true}>
   <div>
-    <div class="px-6 md:px-24 pt-13 md:pt-30 pb-9 md:pb-20 flex flex-col gap-y-5 md:gap-y-7">
-      <div class="text-overline text-brand-primary uppercase font-semibold">contact</div>
-      <h1 class="text-[38px] md:text-[56px] text-brand-ink font-semibold leading-[1.08]">
-        Let’s talk.
-      </h1>
-      <p class="text-[16px] md:text-subtitle1 text-brand-dark-gray w-full md:w-1/2">
+    <div class="px-6 md:px-24 pt-16 pb-12 md:pt-28 md:pb-20 flex flex-col gap-5 md:gap-7">
+      <h1 class="text-h1 text-brand-ink font-semibold">Let’s talk.</h1>
+      <p class="text-body-lg text-brand-dark-gray max-w-[65ch]">
         Tell us what you’re working on, and we’ll be straight with you about whether we’re the right
         team for it.
       </p>
     </div>
 
-    <div class="px-6 md:px-24 pt-6 pb-9 md:pb-20 flex flex-col md:flex-row gap-12">
-      <div class="flex flex-col max-w-193 gap-3 md:gap-5 w-full items-start">
-        <div class="w-full text-[22px] font-semibold text-brand-ink ml-4 md:ml-7">
-          Schedule a call
-        </div>
+    <div class="px-6 md:px-24 pt-6 pb-16 md:pb-24 flex flex-col md:flex-row gap-12">
+      <div class="flex flex-col max-w-193 gap-4 md:gap-5 w-full items-start">
+        <div class="w-full text-h3 font-semibold text-brand-ink ml-4 md:ml-7">Schedule a call</div>
         <!-- Cal inline embed code begins -->
         <CalComponent client:only="react" />
         <!-- Cal inline embed code ends -->
       </div>
 
-      <div class="flex flex-col gap-3 md:gap-5 w-100">
-        <div class="text-[22px] font-semibold text-brand-ink">Prefer email?</div>
-        <div class="text-[16px] text-brand-dark-gray">
+      <div class="flex flex-col gap-4 md:gap-5 w-100">
+        <div class="text-h3 font-semibold text-brand-ink">Prefer email?</div>
+        <div class="text-body text-brand-dark-gray">
           If a call isn’t the right first step, send us a note about what you’re working on and
           we’ll get back to you.
         </div>
-        <div class="text-[18px] text-brand-primary font-medium">contact@lionheartpacific.com</div>
-        <div class="text-[14px] text-brand-mid-gray">We typically reply within a day.</div>
+        <div class="text-body-lg text-brand-primary font-medium">contact@lionheartpacific.com</div>
+        <div class="text-small text-brand-mid-gray">We typically reply within a day.</div>
       </div>
     </div>
   </div>

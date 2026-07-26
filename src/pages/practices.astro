@@ -2,54 +2,22 @@
 import Layout from '../layouts/Layout.astro'
 import LetsTalkSection from '../components/LetsTalkSection.astro'
 import InfoCard from '../components/InfoCard.astro'
-
-const practices = [
-  {
-    label: 'True product ownership',
-    description:
-      'Cross-functional software engineers. We approach product, design, and engineering as one integrated craft, enabling our team to own outcomes from concept to production.',
-  },
-  {
-    label: 'Quality never rests on one person',
-    description:
-      'We pair. Two engineers work as one, so context stays shared, knowledge spreads across the team, and decisions are pressure-tested as they’re made.',
-  },
-  {
-    label: 'Built to adapt',
-    description:
-      'Test-driven development. Every change is verified as it’s made, giving us the confidence to continuously improve and extend software without slowing down.',
-  },
-  {
-    label: 'An evolving craft',
-    description:
-      'Thoughtful adaptation. We eagerly embrace new technologies, including AI, but only where they demonstrably lead to better outcomes.',
-  },
-  {
-    label: 'Discover solutions',
-    description:
-      'Build, measure, learn. Every project begins with a plan. We improve it by learning from software in the hands of our users.',
-  },
-  {
-    label: 'Always ready to ship',
-    description:
-      'Continuous delivery. We make frequent, reliable delivery possible—even in the most complex environments.',
-  },
-]
+import practices from '../data/practices.json'
 ---
 
 <Layout hasNavbar={true}>
   <div
-    class="px-6 md:px-24 pt-13 md:pt-30 pb-9 md:pb-30 flex flex-col gap-y-5 md:gap-y-12 border-b border-brand-light-gray"
+    class="px-6 md:px-24 pt-16 pb-12 md:pt-28 md:pb-20 flex flex-col gap-5 md:gap-7 border-b border-brand-light-gray"
   >
-    <h1 class="text-[38px] md:text-h1 text-brand-ink font-semibold leading-[1.08]">
-      Successful software isn’t an accident.
-    </h1>
-    <p class="text-[16px] md:text-subtitle1 text-brand-dark-gray">
+    <h1 class="text-h1 text-brand-ink font-semibold">Successful software isn’t an accident.</h1>
+    <p class="text-body-lg text-brand-dark-gray max-w-[65ch]">
       It comes from disciplined engineering practices, applied consistently by teams that are
       equipped and empowered to own their work. Here’s how we build.
     </p>
   </div>
-  <div class="px-6 md:px-24 py-9 md:py-30 grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6">
+  <div
+    class="px-6 md:px-24 py-12 md:py-24 grid grid-cols-[repeat(auto-fill,minmax(max(min(100%,20rem),calc((100%-4.5rem)/4+1px)),1fr))] gap-4 md:gap-6"
+  >
     {practices.map((item) => <InfoCard label={item.label} description={item.description} />)}
   </div>
   <LetsTalkSection

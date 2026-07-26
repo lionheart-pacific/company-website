@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Product Development",
+    "tagline": "Build software with a team that owns the outcome.",
+    "paragraphs": [
+      "We provide dedicated product teams of cross-functional engineers who treat product, design, and engineering as one craft. Our software engineering team is based in Thailand, where we’ve built a stable, collaborative organization designed for long-term product development.",
+      "Every engagement pairs the team with a Delivery Lead, your primary point of contact, who stays close to your business and its priorities. The team collectively owns the product from concept to production."
+    ],
+    "highlighted": false
+  },
+  {
+    "name": "Compliance Engineering",
+    "tagline": "Compliance doesn’t have to stand in the way of operational excellence.",
+    "paragraphs": [
+      "The best compliant solution is rarely the most conservative one. Most organizations read the rules defensively and rule out innovative solutions the frameworks would allow. We read them closely and keep finding room for both stronger compliance and better systems.",
+      "Recently, our team brought a new SaaS product to market under FedRAMP with software engineering based in Thailand. Demanding compliance doesn’t rule out global talent. It rules out partners who don’t know the framework."
+    ],
+    "highlighted": true
+  }
+]
