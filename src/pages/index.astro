@@ -1,12 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import HeroSection from '../components/HeroSection.astro'
+import NavBar from '../components/NavBar.astro'
 import LetsTalkSection from '../components/LetsTalkSection.astro'
 ---
 
-<Layout hasNavbar={false}>
+<Layout>
+  <NavBar overlay />
   <HeroSection />
-  <section class="flex flex-col px-6 py-16 gap-14 md:px-24 md:py-24 md:gap-20">
+  <section class="site-container flex flex-col py-16 gap-14 md:py-24 md:gap-20">
     <div class="flex flex-col gap-5 md:gap-8">
       <h2 class="text-h2 font-semibold text-brand-ink">
         Business-critical software needs stewardship
@@ -39,20 +41,22 @@ import LetsTalkSection from '../components/LetsTalkSection.astro'
       </div>
     </div>
   </section>
-  <section class="bg-brand-concrete flex flex-col px-6 py-16 gap-5 md:px-24 md:py-24 md:gap-8">
-    <h2 class="text-h2 font-semibold text-brand-ink">A trusted partner</h2>
-    <div class="flex flex-col gap-5 md:gap-6">
-      <blockquote class="border-l-4 border-brand-primary pl-5 md:pl-7">
-        <p class="text-h3 italic text-brand-dark-gray max-w-[55ch]">
-          Partnering with Lionheart Pacific has been one of the best decisions we’ve made. They
-          bring thoughtful judgment, real ownership, and a depth of experience that’s difficult to
-          find. We’ve trusted them with software that’s critical to our business, and they’ve
-          consistently been invested in our long-term success as if it were their own.
-        </p>
-      </blockquote>
-      <div class="text-body">
-        <div class="font-semibold text-brand-ink">John Doe, Co-Founder</div>
-        <div class="text-brand-mid-gray">ACME LLC — Inc. 5000, 2025 &amp; 2026</div>
+  <section class="bg-brand-concrete py-16 md:py-24">
+    <div class="site-container flex flex-col gap-5 md:gap-8">
+      <h2 class="text-h2 font-semibold text-brand-ink">A trusted partner</h2>
+      <div class="flex flex-col gap-5 md:gap-6">
+        <blockquote class="border-l-4 border-brand-primary pl-5 md:pl-7">
+          <p class="text-h3 italic text-brand-dark-gray max-w-[55ch]">
+            Partnering with Lionheart Pacific has been one of the best decisions we’ve made. They
+            bring thoughtful judgment, real ownership, and a depth of experience that’s difficult to
+            find. We’ve trusted them with software that’s critical to our business, and they’ve
+            consistently been invested in our long-term success as if it were their own.
+          </p>
+        </blockquote>
+        <div class="text-body">
+          <div class="font-semibold text-brand-ink">John Doe, Co-Founder</div>
+          <div class="text-brand-mid-gray">ACME LLC — Inc. 5000, 2025 &amp; 2026</div>
+        </div>
       </div>
     </div>
   </section>

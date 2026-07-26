@@ -1,34 +1,70 @@
 ---
 import { Astronav, MenuIcon, MenuItems } from 'astro-navbar'
 
+interface Props {
+  overlay?: boolean
+}
+
+const { overlay = false } = Astro.props
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/'
 ---
 
-<header class="w-full border-b border-brand-light-gray px-6 py-5 md:px-24">
-  <div class="relative flex justify-between" data-navbar-root>
+<header
+  class:list={[
+    'group top-0 z-40 w-full py-5',
+    overlay
+      ? 'fixed inset-x-0 transition-colors duration-300 data-scrolled:bg-white data-scrolled:border-b data-scrolled:border-brand-light-gray'
+      : 'sticky bg-white border-b border-brand-light-gray',
+  ]}
+  data-nav-overlay={overlay || undefined}
+>
+  <div class="site-container relative flex items-center justify-between" data-navbar-root>
     <Astronav closeOnClick>
       <div class="flex w-full items-center justify-between md:w-auto">
-        <a href="/" class="font-logo text-[22px] text-brand-primary md:text-[24px]">
+        <a
+          href="/"
+          class:list={[
+            'font-logo text-wordmark text-brand-primary',
+            overlay && [
+              'opacity-0 pointer-events-none transition-opacity duration-300',
+              'group-data-scrolled:opacity-100 group-data-scrolled:pointer-events-auto',
+            ],
+          ]}
+        >
           Lionheart Pacific
         </a>
 
         <div class="block md:hidden">
-          <MenuIcon class="size-6 text-brand-ink" />
+          <MenuIcon
+            class:list={[
+              'size-6',
+              overlay
+                ? 'text-brand-concrete transition-colors group-data-scrolled:text-brand-ink'
+                : 'text-brand-ink',
+            ]}
+          />
         </div>
       </div>
 
       <MenuItems
         aria-label="Primary navigation"
-        class="absolute right-0 top-full z-50 mt-3 hidden w-56 overflow-hidden rounded-sm border border-brand-light-gray bg-white shadow-lg md:static md:z-auto md:mt-0 md:flex md:w-auto md:overflow-visible md:border-0 md:bg-transparent md:shadow-none"
+        class:list={[
+          'absolute right-0 top-full z-50 mt-3 hidden w-56',
+          'overflow-hidden rounded-sm border border-brand-light-gray bg-white shadow-lg',
+          'md:static md:z-auto md:mt-0 md:flex md:w-auto',
+          'md:overflow-visible md:border-0 md:bg-transparent md:shadow-none',
+        ]}
       >
         <ul class="flex flex-col md:flex-row md:items-center md:gap-8">
           <li class="border-b border-brand-light-gray md:border-0">
             <a
               href="/practices"
-              aria-current={currentPath === '/practices' ? 'page' : undefined}
+              aria-current={currentPath === '/practices' ? true : undefined}
               class:list={[
-                'block px-5 py-3.5 text-nav text-brand-primary transition-colors hover:bg-brand-concrete md:p-0 md:hover:bg-transparent md:hover:underline',
-                currentPath === '/practices' && 'bg-brand-concrete md:bg-transparent md:underline',
+                'block px-5 text-nav text-brand-primary',
+                'transition-colors hover:bg-brand-concrete md:p-0 md:hover:bg-transparent md:hover:underline',
+                'aria-current:bg-brand-concrete md:aria-current:bg-transparent md:aria-current:underline',
+                overlay && 'md:text-brand-concrete md:group-data-scrolled:text-brand-primary',
               ]}
             >
               Practices
@@ -38,10 +74,12 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/'
           <li class="border-b border-brand-light-gray md:border-0">
             <a
               href="/services"
-              aria-current={currentPath === '/services' ? 'page' : undefined}
+              aria-current={currentPath === '/services' ? true : undefined}
               class:list={[
-                'block px-5 py-3.5 text-nav text-brand-primary transition-colors hover:bg-brand-concrete md:p-0 md:hover:bg-transparent md:hover:underline',
-                currentPath === '/services' && 'bg-brand-concrete md:bg-transparent md:underline',
+                'block px-5 text-nav text-brand-primary',
+                'transition-colors hover:bg-brand-concrete md:p-0 md:hover:bg-transparent md:hover:underline',
+                'aria-current:bg-brand-concrete md:aria-current:bg-transparent md:aria-current:underline',
+                overlay && 'md:text-brand-concrete md:group-data-scrolled:text-brand-primary',
               ]}
             >
               Services
@@ -51,8 +89,20 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/'
           <li>
             <a
               href="/contact"
-              aria-current={currentPath === '/contact' ? 'page' : undefined}
-              class="block bg-brand-primary px-5 py-3.5 text-nav text-white transition-opacity hover:opacity-90 md:rounded-sm md:px-4 md:py-2.5"
+              aria-current={currentPath === '/contact' ? true : undefined}
+              class:list={[
+                'block px-5 text-nav md:rounded-sm md:border',
+                'bg-brand-primary text-white',
+                'transition-colors hover:opacity-90',
+                'aria-current:bg-brand-concrete aria-current:text-brand-primary',
+                'md:aria-current:bg-transparent',
+                overlay
+                  ? [
+                      'md:border-brand-concrete md:bg-transparent md:text-brand-concrete',
+                      'md:group-data-scrolled:border-brand-primary md:group-data-scrolled:bg-brand-primary md:group-data-scrolled:text-white',
+                    ]
+                  : 'md:border-brand-primary',
+              ]}
             >
               Let’s talk
             </a>
@@ -65,6 +115,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/'
 
 <script>
   let navbarPopoverController: AbortController | undefined
+  let navScrollObserver: IntersectionObserver | undefined
 
   const initializeNavbarPopover = () => {
     const navbarRoot = document.querySelector<HTMLElement>('[data-navbar-root]')
@@ -131,6 +182,29 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/'
     syncExpanded()
   }
 
-  document.addEventListener('DOMContentLoaded', initializeNavbarPopover, { once: true })
-  document.addEventListener('astro:after-swap', initializeNavbarPopover)
+  const initializeNavScroll = () => {
+    const nav = document.querySelector<HTMLElement>('[data-nav-overlay]')
+    const sentinel = document.querySelector<HTMLElement>('[data-hero-spacer]')
+
+    if (!nav || !sentinel) {
+      return
+    }
+
+    navScrollObserver?.disconnect()
+    navScrollObserver = new IntersectionObserver(
+      ([entry]) => {
+        nav.toggleAttribute('data-scrolled', !entry.isIntersecting)
+      },
+      { rootMargin: `-${nav.offsetHeight}px 0px 0px 0px` },
+    )
+    navScrollObserver.observe(sentinel)
+  }
+
+  const initializeNavbar = () => {
+    initializeNavbarPopover()
+    initializeNavScroll()
+  }
+
+  document.addEventListener('DOMContentLoaded', initializeNavbar, { once: true })
+  document.addEventListener('astro:after-swap', initializeNavbar)
 </script>

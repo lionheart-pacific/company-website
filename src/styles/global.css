@@ -8,50 +8,41 @@
   font-display: swap;
 }
 
-@font-face {
-  src: url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap')
-    format('woff');
-  font-family: 'Figtree';
-  font-weight: 300 900;
-  font-style: normal;
-}
-
 @theme {
   --color-brand-primary: #012b5d;
   --color-brand-ink: #1a1a1a;
-  /*header and block background*/
   --color-brand-concrete: #f2f2f2;
-  /*divider*/
   --color-brand-light-gray: #e0e0e5;
-  /*text mid gray*/
   --color-brand-mid-gray: #8c94a1;
-  /*text dark gray*/
   --color-brand-dark-gray: #5c6675;
 
   --font-logo: 'Monley';
-  --font-Figtree: 'Figtree';
+  --font-primary: 'Figtree';
 
-  /* Fluid type scale, 390px -> 1440px viewport. One token per role; no per-breakpoint
-     size classes needed. Mobile floors are deliberately generous. */
-  /* page titles, closing band heading: 38 -> 56 */
   --text-h1: clamp(2.375rem, 2rem + 1.9vw, 3.5rem);
   --text-h1--line-height: 1.1;
-  /* section headings, hero headline: 28 -> 44 */
   --text-h2: clamp(1.75rem, 1.5rem + 1.5vw, 2.75rem);
   --text-h2--line-height: 1.18;
-  /* card labels, taglines, pull quote: 19 -> 22 */
   --text-h3: clamp(1.1875rem, 1.12rem + 0.3vw, 1.375rem);
   --text-h3--line-height: 1.4;
-  /* lead paragraphs: 18 -> 20 */
   --text-body-lg: clamp(1.125rem, 1.08rem + 0.2vw, 1.25rem);
   --text-body-lg--line-height: 1.55;
-  /* default copy, links, buttons: 16 -> 17 */
   --text-body: clamp(1rem, 0.97rem + 0.15vw, 1.0625rem);
   --text-body--line-height: 1.6;
-  /* navigation: fixed */
-  --text-nav: 0.9375rem;
-  --text-nav--line-height: 1.2;
-  /* footer, meta: fixed */
+  --text-nav: 1rem;
+  --text-nav--line-height: 2.75;
+  --text-wordmark: clamp(1.5rem, 1.4rem + 0.4vw, 1.75rem);
+  --text-wordmark--line-height: 1;
   --text-small: 0.875rem;
   --text-small--line-height: 1.5;
+}
+
+@utility site-container {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 90rem;
+  padding-inline: calc(var(--spacing) * 6);
+  @media (width >= 48rem) {
+    padding-inline: calc(var(--spacing) * 24);
+  }
 }
