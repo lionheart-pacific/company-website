@@ -1,5 +1,7 @@
 {
-  "plugins": ["prettier-plugin-astro"],
+  "plugins": [
+    "prettier-plugin-astro"
+  ],
   "singleQuote": true,
   "semi": false,
   "printWidth": 100,
@@ -10,5 +12,6 @@
         "parser": "astro"
       }
     }
-  ]
+  ],
+  "htmlWhitespaceSensitivity": "ignore"
 }
