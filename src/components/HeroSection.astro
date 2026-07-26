@@ -88,6 +88,6 @@ const { spacerId } = Astro.props
     update()
   }
 
-  document.addEventListener('DOMContentLoaded', initializeHeroHeading, { once: true })
   document.addEventListener('astro:after-swap', initializeHeroHeading)
+  initializeHeroHeading()
 </script>

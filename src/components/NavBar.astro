@@ -205,6 +205,6 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/'
     initializeNavScroll()
   }
 
-  document.addEventListener('DOMContentLoaded', initializeNavbar, { once: true })
   document.addEventListener('astro:after-swap', initializeNavbar)
+  initializeNavbar()
 </script>
