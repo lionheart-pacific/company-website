@@ -1,10 +1,5 @@
 ---
 import SeaPattern from '../assets/sea-pattern.svg'
-
-interface Props {
-  body: string
-}
-const { body } = Astro.props
 ---
 
 <div class="h-100 md:h-117.5 bg-brand-primary relative text-brand-concrete">
@@ -18,7 +13,7 @@ const { body } = Astro.props
   >
     <div class="text-h1 font-semibold">Let’s talk</div>
     <div class="text-body-lg font-normal max-w-[620px]">
-      {body}
+      <slot />
     </div>
     <a
       href="/contact"
