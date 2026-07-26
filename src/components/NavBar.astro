@@ -1,11 +1,9 @@
 ---
 import { Astronav, MenuIcon, MenuItems } from 'astro-navbar'
 
-interface Props {
-  overlay?: boolean
-}
+type Props = { overlay?: false; sentinelId?: never } | { overlay: true; sentinelId: string }
 
-const { overlay = false } = Astro.props
+const { overlay = false, sentinelId } = Astro.props
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/'
 ---
 
@@ -17,6 +15,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/'
       : 'sticky bg-white border-b border-brand-light-gray',
   ]}
   data-nav-overlay={overlay || undefined}
+  data-sentinel={sentinelId && `#${sentinelId}`}
 >
   <div class="site-container relative flex items-center justify-between" data-navbar-root>
     <Astronav closeOnClick>
@@ -37,7 +36,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/'
         <div class="block md:hidden">
           <MenuIcon
             class:list={[
-              'size-6',
+              'size-6 cursor-pointer',
               overlay
                 ? 'text-brand-concrete transition-colors group-data-scrolled:text-brand-ink'
                 : 'text-brand-ink',
@@ -92,16 +91,15 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/'
               aria-current={currentPath === '/contact' ? true : undefined}
               class:list={[
                 'block px-5 text-nav md:rounded-sm md:border',
-                'bg-brand-primary text-white',
-                'transition-colors hover:opacity-90',
-                'aria-current:bg-brand-concrete aria-current:text-brand-primary',
-                'md:aria-current:bg-transparent',
+                'text-brand-primary transition-colors max-md:hover:bg-brand-concrete',
+                'aria-current:bg-brand-concrete md:aria-current:bg-transparent',
+                'md:hover:opacity-90',
                 overlay
                   ? [
-                      'md:border-brand-concrete md:bg-transparent md:text-brand-concrete',
+                      'md:border-brand-concrete md:text-brand-concrete',
                       'md:group-data-scrolled:border-brand-primary md:group-data-scrolled:bg-brand-primary md:group-data-scrolled:text-white',
                     ]
-                  : 'md:border-brand-primary',
+                  : 'md:border-brand-primary md:bg-brand-primary md:text-white md:aria-current:text-brand-primary',
               ]}
             >
               Let’s talk
@@ -184,7 +182,9 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/'
 
   const initializeNavScroll = () => {
     const nav = document.querySelector<HTMLElement>('[data-nav-overlay]')
-    const sentinel = document.querySelector<HTMLElement>('[data-hero-spacer]')
+    const sentinel = nav?.dataset.sentinel
+      ? document.querySelector<HTMLElement>(nav.dataset.sentinel)
+      : null
 
     if (!nav || !sentinel) {
       return

@@ -2,6 +2,12 @@
 import oceanImage from '../assets/ocean.jpg'
 import { Picture } from 'astro:assets'
 import Logo from './Logo.astro'
+
+interface Props {
+  spacerId?: string
+}
+
+const { spacerId } = Astro.props
 ---
 
 <div class="bg-white dark:bg-gray-900">
@@ -16,7 +22,7 @@ import Logo from './Logo.astro'
       decoding="async"
       class="absolute inset-0 -z-10 size-full object-cover"
     />
-    <div class="flex-1" data-hero-spacer></div>
+    <div class="flex-1" id={spacerId}></div>
     <div
       class:list={[
         'site-container',
