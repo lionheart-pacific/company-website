@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css'
 import Footer from '../components/Footer.astro'
+import monleyUrl from '../assets/fonts/monley.woff?url'
 ---
 
 <!doctype html>
@@ -12,6 +13,7 @@ import Footer from '../components/Footer.astro'
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <title>Lionheart Pacific</title>
+    <link rel="preload" href={monleyUrl} as="font" type="font/woff" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
