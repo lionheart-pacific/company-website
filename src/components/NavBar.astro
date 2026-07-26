@@ -117,23 +117,25 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/'
 
   const initializeNavbarPopover = () => {
     const navbarRoot = document.querySelector<HTMLElement>('[data-navbar-root]')
-    const menuButton = navbarRoot?.querySelector<HTMLButtonElement>('#astronav-menu')
-    const menuItems = navbarRoot?.querySelector<HTMLElement>('#primary-navigation')
+    const menuItems = navbarRoot?.querySelector<HTMLElement>('.astronav-items')
 
-    if (!navbarRoot || !menuButton || !menuItems) {
+    if (!navbarRoot || !menuItems) {
       return
     }
+
+    menuItems.id ||= 'primary-navigation'
 
     navbarPopoverController?.abort()
     navbarPopoverController = new AbortController()
     const { signal } = navbarPopoverController
 
-    menuButton.setAttribute('aria-controls', menuItems.id)
-
+    const menuButton = () => document.getElementById('astronav-menu')
     const isOpen = () => !menuItems.classList.contains('hidden')
 
     const syncExpanded = () => {
-      menuButton.setAttribute('aria-expanded', String(isOpen()))
+      const button = menuButton()
+      button?.setAttribute('aria-controls', menuItems.id)
+      button?.setAttribute('aria-expanded', String(isOpen()))
     }
 
     const closeMenu = (restoreFocus = false) => {
@@ -141,15 +143,30 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/'
         return
       }
 
-      menuButton.click()
+      menuButton()?.click()
       syncExpanded()
 
       if (restoreFocus) {
-        menuButton.focus()
+        menuButton()?.focus()
       }
     }
 
-    menuButton.addEventListener('click', () => queueMicrotask(syncExpanded), { signal })
+    document.addEventListener(
+      'click',
+      (event) => {
+        if (!(event.target instanceof Element)) {
+          return
+        }
+
+        if (
+          event.target.closest('#astronav-menu') ||
+          event.target.closest('#primary-navigation a')
+        ) {
+          queueMicrotask(syncExpanded)
+        }
+      },
+      { signal },
+    )
 
     document.addEventListener(
       'pointerdown',
@@ -172,10 +189,6 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/'
       },
       { signal },
     )
-
-    menuItems.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => queueMicrotask(syncExpanded), { signal })
-    })
 
     syncExpanded()
   }
