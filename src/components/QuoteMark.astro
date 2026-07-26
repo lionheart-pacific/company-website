@@ -1,0 +1,19 @@
+---
+interface Props {
+  class?: string
+}
+
+const { class: className } = Astro.props
+---
+
+<span
+  class:list={[
+    'select-none font-serif text-brand-primary',
+    'md:absolute md:right-full md:mr-6',
+    'md:text-[5.5rem] md:leading-none md:mt-[-0.12em]',
+    className,
+  ]}
+  aria-hidden="true"
+>
+  “
+</span>
