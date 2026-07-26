@@ -2,18 +2,19 @@
 import Logo from './Logo.astro'
 ---
 
-<footer
-  id="footer"
-  class="w-full px-6 py-12 flex md:px-24 md:py-16 flex-col justify-start items-center md:flex-row md:justify-between border-t border-brand-light-gray"
->
-  <div class="flex flex-col h-fit gap-x-3 md:gap-y-3">
-    <Logo color="text-brand-primary" height={22} width={48} fontSize={22} lineHeight={22} />
-    <div class="text-small text-brand-mid-gray">© 2026 · Lionheart Pacific</div>
-  </div>
-  <div class="flex flex-row md:flex-col h-fit gap-4 md:gap-3">
-    <div class="hidden md:block text-small tracking-wider text-brand-mid-gray">EXPLORE</div>
-    <a href="/practices" class="text-small text-brand-ink hover:underline"> Practices </a>
-    <a href="/services" class="text-small text-brand-ink hover:underline"> Services </a>
-    <a href="/contact" class="text-small text-brand-ink hover:underline"> Contact </a>
+<footer id="footer" class="w-full py-12 md:py-16 border-t border-brand-light-gray">
+  <div
+    class="site-container flex flex-col justify-start items-center md:flex-row md:justify-between"
+  >
+    <div class="flex flex-col items-center h-fit gap-x-3 md:gap-y-3">
+      <Logo class="text-[22px] text-brand-primary" />
+      <div class="text-small text-brand-mid-gray">© 2026 · Lionheart Pacific</div>
+    </div>
+    <div class="flex flex-row md:flex-col h-fit gap-4 md:gap-3">
+      <div class="hidden md:block text-small tracking-wider text-brand-mid-gray">EXPLORE</div>
+      <a href="/practices" class="text-small text-brand-ink hover:underline"> Practices </a>
+      <a href="/services" class="text-small text-brand-ink hover:underline"> Services </a>
+      <a href="/contact" class="text-small text-brand-ink hover:underline"> Contact </a>
+    </div>
   </div>
 </footer>

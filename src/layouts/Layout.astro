@@ -1,12 +1,6 @@
 ---
 import '../styles/global.css'
-import NavBar from '../components/NavBar.astro'
-import Logo from '../components/Logo.astro'
 import Footer from '../components/Footer.astro'
-interface Props {
-  hasNavbar: boolean
-}
-const { hasNavbar } = Astro.props
 ---
 
 <!doctype html>
@@ -25,8 +19,7 @@ const { hasNavbar } = Astro.props
       rel="stylesheet"
     />
   </head>
-  <body class="font-Figtree">
-    {hasNavbar && <NavBar />}
+  <body class="font-primary">
     <slot />
     <Footer />
   </body>
