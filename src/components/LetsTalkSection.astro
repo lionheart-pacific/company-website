@@ -1,27 +1,30 @@
 ---
-import SeaPattern from "../assets/sea-pattern.svg";
+import SeaPattern from '../assets/sea-pattern.svg'
 
 interface Props {
-    body: string;
+  body: string
 }
-const {body} = Astro.props;
+const { body } = Astro.props
 ---
+
 <div class="h-100 md:h-117.5 bg-brand-primary relative text-brand-concrete">
-    <div style={{'--pattern-url': `url(${SeaPattern.src})`}}
-         class="h-100 md:h-117.5 w-full bg-[#1A3D67] absolute top-0
-             mask-(--pattern-url) mask-repeat mask-center mask-size-[auto_calc(100%/2)]"
+  <div
+    style={{ '--pattern-url': `url(${SeaPattern.src})` }}
+    class="h-100 md:h-117.5 w-full bg-[#1A3D67] absolute top-0 mask-(--pattern-url) mask-repeat mask-center mask-size-[auto_calc(100%/2)]"
+  >
+  </div>
+  <div
+    class="relative flex flex-col h-full justify-center items-center gap-3 md:gap-6 p-6 text-center"
+  >
+    <div class="text-3xl md:text-h1 font-semibold">Let’s talk</div>
+    <div class="text-sm md:text-subtitle1 font-normal max-w-[620px]">
+      {body}
+    </div>
+    <a
+      href="/contact"
+      class="text-sm md:text-subtitle1 bg-white rounded-sm text-brand-primary w-fit py-3 px-6.25"
     >
-    </div>
-    <div class="relative flex flex-col h-full justify-center items-center gap-3 md:gap-6
-    p-6 text-center">
-        <div class="text-3xl md:text-h1 font-semibold">
-            Let’s talk
-        </div>
-        <div class="text-sm md:text-subtitle1 font-normal max-w-[620px]">
-            {body}
-        </div>
-        <a href="/contact" class="text-sm md:text-subtitle1 bg-white rounded-sm text-brand-primary w-fit py-3 px-6.25">
-            Schedule a call&ensp;→
-        </a>
-    </div>
+      Schedule a call&ensp;→
+    </a>
+  </div>
 </div>
