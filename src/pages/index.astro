@@ -3,11 +3,13 @@ import Layout from '../layouts/Layout.astro'
 import HeroSection from '../components/HeroSection.astro'
 import NavBar from '../components/NavBar.astro'
 import LetsTalkSection from '../components/LetsTalkSection.astro'
+
+const heroSpacerId = 'hero-spacer'
 ---
 
 <Layout>
-  <NavBar overlay />
-  <HeroSection />
+  <NavBar overlay sentinelId={heroSpacerId} />
+  <HeroSection spacerId={heroSpacerId} />
   <section class="site-container flex flex-col py-16 gap-14 md:py-24 md:gap-20">
     <div class="flex flex-col gap-5 md:gap-8">
       <h2 class="text-h2 font-semibold text-brand-ink">
@@ -21,7 +23,7 @@ import LetsTalkSection from '../components/LetsTalkSection.astro'
           stays invested in its long-term success.
         </p>
         <a href="/practices" class="text-body font-medium text-brand-primary hover:underline">
-          Learn how we work&ensp;→
+          Learn how we work →
         </a>
       </div>
     </div>
@@ -36,7 +38,7 @@ import LetsTalkSection from '../components/LetsTalkSection.astro'
           firm, at a cost you can sustain.
         </p>
         <a href="/services" class="text-body font-medium text-brand-primary hover:underline">
-          See our services&ensp;→
+          See our services →
         </a>
       </div>
     </div>
@@ -53,9 +55,10 @@ import LetsTalkSection from '../components/LetsTalkSection.astro'
             consistently been invested in our long-term success as if it were their own.
           </p>
         </blockquote>
-        <div class="text-body">
+        <div class="text-body leading-snug">
           <div class="font-semibold text-brand-ink">John Doe, Co-Founder</div>
-          <div class="text-brand-mid-gray">ACME LLC — Inc. 5000, 2025 &amp; 2026</div>
+          <div class="text-brand-mid-gray">Acme LLC</div>
+          <div class="text-small text-brand-mid-gray">Inc. 5000 in 2025 and 2026</div>
         </div>
       </div>
     </div>
