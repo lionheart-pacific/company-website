@@ -21,7 +21,6 @@
     "@types/react-dom": "^19.2.3",
     "astro": "^6.4.5",
     "astro-navbar": "^2.4.0",
-    "clsx": "^2.1.1",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "sharp": "^0.35.0",

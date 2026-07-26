@@ -8,26 +8,26 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/'
   <div class="relative flex justify-between" data-navbar-root>
     <Astronav closeOnClick>
       <div class="flex w-full items-center justify-between md:w-auto">
-        <a href="/" class="font-logo text-[18px] text-brand-primary md:text-[24px]">
+        <a href="/" class="font-logo text-[22px] text-brand-primary md:text-[24px]">
           Lionheart Pacific
         </a>
 
         <div class="block md:hidden">
-          <MenuIcon class="size-5 text-brand-ink" />
+          <MenuIcon class="size-6 text-brand-ink" />
         </div>
       </div>
 
       <MenuItems
         aria-label="Primary navigation"
-        class="absolute right-0 top-full z-50 mt-3 hidden w-48 overflow-hidden rounded-sm border border-brand-light-gray bg-white shadow-lg md:static md:z-auto md:mt-0 md:flex md:w-auto md:overflow-visible md:border-0 md:bg-transparent md:shadow-none"
+        class="absolute right-0 top-full z-50 mt-3 hidden w-56 overflow-hidden rounded-sm border border-brand-light-gray bg-white shadow-lg md:static md:z-auto md:mt-0 md:flex md:w-auto md:overflow-visible md:border-0 md:bg-transparent md:shadow-none"
       >
-        <ul class="flex flex-col md:flex-row md:items-center md:gap-7">
+        <ul class="flex flex-col md:flex-row md:items-center md:gap-8">
           <li class="border-b border-brand-light-gray md:border-0">
             <a
               href="/practices"
               aria-current={currentPath === '/practices' ? 'page' : undefined}
               class:list={[
-                'block px-4 py-3 text-[13px] text-brand-primary transition-colors hover:bg-brand-concrete md:p-0 md:hover:bg-transparent md:hover:underline',
+                'block px-5 py-3.5 text-nav text-brand-primary transition-colors hover:bg-brand-concrete md:p-0 md:hover:bg-transparent md:hover:underline',
                 currentPath === '/practices' && 'bg-brand-concrete md:bg-transparent md:underline',
               ]}
             >
@@ -40,7 +40,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/'
               href="/services"
               aria-current={currentPath === '/services' ? 'page' : undefined}
               class:list={[
-                'block px-4 py-3 text-[13px] text-brand-primary transition-colors hover:bg-brand-concrete md:p-0 md:hover:bg-transparent md:hover:underline',
+                'block px-5 py-3.5 text-nav text-brand-primary transition-colors hover:bg-brand-concrete md:p-0 md:hover:bg-transparent md:hover:underline',
                 currentPath === '/services' && 'bg-brand-concrete md:bg-transparent md:underline',
               ]}
             >
@@ -52,7 +52,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/'
             <a
               href="/contact"
               aria-current={currentPath === '/contact' ? 'page' : undefined}
-              class="block bg-brand-primary px-4 py-3 text-[13px] text-white transition-opacity hover:opacity-90 md:rounded-sm md:p-2"
+              class="block bg-brand-primary px-5 py-3.5 text-nav text-white transition-opacity hover:opacity-90 md:rounded-sm md:px-4 md:py-2.5"
             >
               Let’s talk
             </a>

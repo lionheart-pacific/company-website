@@ -1,5 +1,4 @@
 ---
-import clsx from 'clsx'
 import oceanImage from '../assets/ocean.jpg'
 import { Picture } from 'astro:assets'
 import Logo from './Logo.astro'
@@ -10,37 +9,37 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/'
 ---
 
 <div class="bg-white dark:bg-gray-900">
-  <div class="relative isolate overflow-hidden pt-14">
+  <div class="relative isolate overflow-hidden pt-14 min-h-[75dvh] flex flex-col">
     <header class="w-full px-6 py-5 md:px-24">
       <div class="relative flex justify-end" data-navbar-root>
         <Astronav closeOnClick>
           <div class="flex w-full items-center justify-end md:w-auto">
             <div class="block md:hidden">
-              <MenuIcon class="size-5 text-brand-concrete" />
+              <MenuIcon class="size-6 text-brand-concrete" />
             </div>
           </div>
 
           <MenuItems
             aria-label="Primary navigation"
-            class={clsx(
+            class:list={[
               'absolute right-0 top-full z-50 mt-3 hidden w-48',
               'overflow-hidden rounded-sm border border-brand-light-gray bg-white shadow-lg',
               'md:static md:z-auto md:mt-0 md:flex md:w-auto',
               'md:overflow-visible md:border-0 md:bg-transparent md:shadow-none',
-            )}
+            ]}
           >
-            <ul class="flex flex-col md:flex-row md:items-center md:gap-7">
+            <ul class="flex flex-col md:flex-row md:items-center md:gap-8">
               <li class="border-b border-brand-light-gray md:border-0">
                 <a
                   href="/practices"
                   aria-current={currentPath === '/practices' ? 'page' : undefined}
-                  class={clsx(
-                    'block px-4 py-3 text-[13px] text-brand-ink md:text-brand-concrete',
+                  class:list={[
+                    'block px-5 py-3.5 text-nav text-brand-ink md:text-brand-concrete',
                     'transition-colors hover:bg-brand-concrete',
                     'md:p-0 md:hover:bg-transparent md:hover:underline',
                     currentPath === '/practices' &&
                       'bg-brand-concrete md:bg-transparent md:underline',
-                  )}
+                  ]}
                 >
                   Practices
                 </a>
@@ -50,13 +49,13 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/'
                 <a
                   href="/services"
                   aria-current={currentPath === '/services' ? 'page' : undefined}
-                  class={clsx(
-                    'block px-4 py-3 text-[13px] text-brand-ink md:text-brand-concrete',
+                  class:list={[
+                    'block px-5 py-3.5 text-nav text-brand-ink md:text-brand-concrete',
                     'transition-colors hover:bg-brand-concrete',
                     'md:p-0 md:hover:bg-transparent md:hover:underline',
                     currentPath === '/services' &&
                       'bg-brand-concrete md:bg-transparent md:underline',
-                  )}
+                  ]}
                 >
                   Services
                 </a>
@@ -66,11 +65,11 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/'
                 <a
                   href="/contact"
                   aria-current={currentPath === '/contact' ? 'page' : undefined}
-                  class={clsx(
-                    'block px-4 py-3 text-[13px]',
+                  class:list={[
+                    'block px-5 py-3.5 text-nav',
                     'bg-brand-primary text-brand-concrete transition-opacity hover:opacity-90',
-                    'md:p-2 md:rounded-sm md:bg-brand-concrete md:text-brand-ink',
-                  )}
+                    'md:px-4 md:py-2.5 md:rounded-sm md:bg-brand-concrete md:text-brand-ink',
+                  ]}
                 >
                   Let’s talk
                 </a>
@@ -91,32 +90,33 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/'
       class="absolute inset-0 -z-10 size-full object-cover"
     />
     <div
-      class={clsx(
-        'flex min-h-150',
+      class:list={[
+        'flex flex-1',
         'flex-col lg:flex-row',
+        'justify-center lg:justify-start',
         'p-8 lg:pb-25 lg:px-35',
         'gap-x-13',
         'gap-y-6 lg:gap-y-0',
         'text-brand-concrete',
         'items-center',
         'lg:items-end',
-      )}
+      ]}
     >
       <Logo />
       <div
-        class={clsx(
+        class:list={[
           'flex flex-col',
           'lg:border-l lg:border-l-brand-concrete',
           'lg:pl-13',
-          'gap-y-6 lg:gap-y-4',
-        )}
+          'gap-y-6 lg:gap-y-8',
+        ]}
       >
-        <div class={clsx('text-[32px] lg:text-h2', 'leading-9 lg:leading-13')}>
+        <div class="text-h2 lg:text-h1">
           The dependable team
           <br class="hidden lg:block" />
           for business-critical software
         </div>
-        <div class="text-sm lg:text-subtitle1 font-thin">
+        <div class="text-body-lg lg:text-h3 font-light">
           Lionheart Pacific provides software development and stewardship through principled
           engineering.
         </div>

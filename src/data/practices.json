@@ -1,0 +1,26 @@
+[
+  {
+    "label": "True product ownership",
+    "description": "Cross-functional software engineers. We approach product, design, and engineering as one integrated craft, enabling our team to own outcomes from concept to production."
+  },
+  {
+    "label": "Quality never rests on one person",
+    "description": "We pair. Two engineers work as one, so context stays shared, knowledge spreads across the team, and decisions are pressure-tested as they’re made."
+  },
+  {
+    "label": "Built to adapt",
+    "description": "Test-driven development. Every change is verified as it’s made, giving us the confidence to continuously improve and extend software without slowing down."
+  },
+  {
+    "label": "An evolving craft",
+    "description": "Thoughtful adaptation. We eagerly embrace new technologies, including AI, but only where they demonstrably lead to better outcomes."
+  },
+  {
+    "label": "Discover solutions",
+    "description": "Build, measure, learn. Every project begins with a plan. We improve it by learning from software in the hands of our users."
+  },
+  {
+    "label": "Always ready to ship",
+    "description": "Continuous delivery. We make frequent, reliable delivery possible—even in the most complex environments."
+  }
+]
