@@ -3,8 +3,11 @@ import Layout from '../layouts/Layout.astro'
 import HeroSection from '../components/HeroSection.astro'
 import NavBar from '../components/NavBar.astro'
 import LetsTalkSection from '../components/LetsTalkSection.astro'
+import QuoteMark from '../components/QuoteMark.astro'
 
 const heroSpacerId = 'hero-spacer'
+const quote =
+  'Partnering with Lionheart Pacific has been one of the best decisions we’ve made. They bring thoughtful judgment, real ownership, and a depth of experience that’s difficult to find. We’ve trusted them with software that’s critical to our business, and they’ve consistently been invested in our long-term success as if it were their own.'
 ---
 
 <Layout>
@@ -44,22 +47,19 @@ const heroSpacerId = 'hero-spacer'
     </div>
   </section>
   <section class="bg-brand-concrete py-16 md:py-24">
-    <div class="site-container flex flex-col gap-5 md:gap-8">
-      <h2 class="text-h2 font-semibold text-brand-ink">A trusted partner</h2>
-      <div class="flex flex-col gap-5 md:gap-6">
-        <blockquote class="border-l-4 border-brand-primary pl-5 md:pl-7">
-          <p class="text-h3 italic text-brand-dark-gray max-w-[55ch]">
-            Partnering with Lionheart Pacific has been one of the best decisions we’ve made. They
-            bring thoughtful judgment, real ownership, and a depth of experience that’s difficult to
-            find. We’ve trusted them with software that’s critical to our business, and they’ve
-            consistently been invested in our long-term success as if it were their own.
-          </p>
-        </blockquote>
-        <div class="text-body leading-snug">
-          <div class="font-semibold text-brand-ink">John Doe, Co-Founder</div>
-          <div class="text-brand-mid-gray">Acme LLC</div>
-          <div class="text-small text-brand-mid-gray">Inc. 5000 in 2025 and 2026</div>
-        </div>
+    <div class="site-container flex flex-col items-start gap-6 md:gap-8">
+      <h2 class="text-h2 font-semibold text-brand-ink">In their words</h2>
+      <blockquote class="relative max-w-[60ch]">
+        <QuoteMark class="hidden md:block" />
+        <p class="text-h3 text-brand-dark-gray">
+          <span class="hidden md:inline">{quote}</span>
+          <span class="md:hidden">“{quote}”</span>
+        </p>
+      </blockquote>
+      <div class="text-body-lg leading-snug flex flex-col items-start">
+        <div class="font-semibold text-brand-ink">John Doe, Co-Founder</div>
+        <div class="text-brand-mid-gray">Acme LLC</div>
+        <div class="text-body text-brand-mid-gray">Inc. 5000 in 2025 and 2026</div>
       </div>
     </div>
   </section>
