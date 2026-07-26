@@ -1,6 +1,4 @@
 ---
-import { Astronav, MenuIcon, MenuItems } from 'astro-navbar'
-
 type Props = { overlay?: false; sentinelId?: never } | { overlay: true; sentinelId: string }
 
 const { overlay = false, sentinelId } = Astro.props
@@ -17,181 +15,114 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/'
   data-nav-overlay={overlay || undefined}
   data-sentinel={sentinelId && `#${sentinelId}`}
 >
-  <div class="site-container relative flex items-center justify-between" data-navbar-root>
-    <Astronav closeOnClick>
-      <div class="flex w-full items-center justify-between md:w-auto">
-        <a
-          href="/"
-          class:list={[
-            'font-logo text-wordmark text-brand-primary',
-            overlay && [
-              'opacity-0 pointer-events-none transition-opacity duration-300',
-              'group-data-scrolled:opacity-100 group-data-scrolled:pointer-events-auto',
-            ],
-          ]}
-        >
-          Lionheart Pacific
-        </a>
+  <div class="site-container flex items-center justify-between">
+    <a
+      href="/"
+      class:list={[
+        'font-logo text-wordmark text-brand-primary',
+        overlay && [
+          'opacity-0 pointer-events-none transition-opacity duration-300',
+          'group-data-scrolled:opacity-100 group-data-scrolled:pointer-events-auto',
+        ],
+      ]}
+    >
+      Lionheart Pacific
+    </a>
 
-        <div class="block md:hidden">
-          <MenuIcon
-            class:list={[
-              'size-6 cursor-pointer',
-              overlay
-                ? 'text-brand-concrete transition-colors group-data-scrolled:text-brand-ink'
-                : 'text-brand-ink',
-            ]}
-          />
-        </div>
-      </div>
-
-      <MenuItems
-        aria-label="Primary navigation"
-        class:list={[
-          'absolute right-0 top-full z-50 mt-3 hidden w-56',
-          'overflow-hidden rounded-sm border border-brand-light-gray bg-white shadow-lg',
-          'md:static md:z-auto md:mt-0 md:flex md:w-auto',
-          'md:overflow-visible md:border-0 md:bg-transparent md:shadow-none',
-        ]}
+    <button
+      type="button"
+      popovertarget="primary-navigation"
+      aria-label="Toggle menu"
+      class:list={[
+        'block md:hidden cursor-pointer',
+        overlay
+          ? 'text-brand-concrete transition-colors group-data-scrolled:text-brand-ink'
+          : 'text-brand-ink',
+      ]}
+    >
+      <svg
+        class="size-6"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
       >
-        <ul class="flex flex-col md:flex-row md:items-center md:gap-8">
-          <li class="border-b border-brand-light-gray md:border-0">
-            <a
-              href="/practices"
-              aria-current={currentPath === '/practices' ? true : undefined}
-              class:list={[
-                'block px-5 text-nav text-brand-primary',
-                'transition-colors hover:bg-brand-concrete md:p-0 md:hover:bg-transparent md:hover:underline',
-                'aria-current:bg-brand-concrete md:aria-current:bg-transparent md:aria-current:underline',
-                overlay && 'md:text-brand-concrete md:group-data-scrolled:text-brand-primary',
-              ]}
-            >
-              Practices
-            </a>
-          </li>
+        <path
+          fill-rule="evenodd"
+          d="M4 5h16a1 1 0 010 2H4a1 1 0 110-2zm0 6h16a1 1 0 010 2H4a1 1 0 010-2zm0 6h16a1 1 0 010 2H4a1 1 0 010-2z"
+        ></path>
+      </svg>
+    </button>
 
-          <li class="border-b border-brand-light-gray md:border-0">
-            <a
-              href="/services"
-              aria-current={currentPath === '/services' ? true : undefined}
-              class:list={[
-                'block px-5 text-nav text-brand-primary',
-                'transition-colors hover:bg-brand-concrete md:p-0 md:hover:bg-transparent md:hover:underline',
-                'aria-current:bg-brand-concrete md:aria-current:bg-transparent md:aria-current:underline',
-                overlay && 'md:text-brand-concrete md:group-data-scrolled:text-brand-primary',
-              ]}
-            >
-              Services
-            </a>
-          </li>
+    <nav
+      popover
+      id="primary-navigation"
+      aria-label="Primary navigation"
+      class:list={[
+        'fixed inset-auto top-24 right-6 m-0 p-0 w-56',
+        'overflow-hidden rounded-sm border border-brand-light-gray bg-white shadow-lg',
+        'md:static md:flex md:w-auto',
+        'md:overflow-visible md:border-0 md:bg-transparent md:shadow-none',
+      ]}
+    >
+      <ul class="flex flex-col md:flex-row md:items-center md:gap-8">
+        <li class="border-b border-brand-light-gray md:border-0">
+          <a
+            href="/practices"
+            aria-current={currentPath === '/practices' ? true : undefined}
+            class:list={[
+              'block px-5 text-nav text-brand-primary',
+              'transition-colors hover:bg-brand-concrete md:p-0 md:hover:bg-transparent md:hover:underline',
+              'aria-current:bg-brand-concrete md:aria-current:bg-transparent md:aria-current:underline',
+              overlay && 'md:text-brand-concrete md:group-data-scrolled:text-brand-primary',
+            ]}
+          >
+            Practices
+          </a>
+        </li>
 
-          <li>
-            <a
-              href="/contact"
-              aria-current={currentPath === '/contact' ? true : undefined}
-              class:list={[
-                'block px-5 text-nav md:rounded-sm md:border',
-                'text-brand-primary transition-colors max-md:hover:bg-brand-concrete',
-                'aria-current:bg-brand-concrete md:aria-current:bg-transparent',
-                'md:hover:opacity-90',
-                overlay
-                  ? [
-                      'md:border-brand-concrete md:text-brand-concrete',
-                      'md:group-data-scrolled:border-brand-primary md:group-data-scrolled:bg-brand-primary md:group-data-scrolled:text-white',
-                    ]
-                  : 'md:border-brand-primary md:bg-brand-primary md:text-white md:aria-current:text-brand-primary',
-              ]}
-            >
-              Let’s talk
-            </a>
-          </li>
-        </ul>
-      </MenuItems>
-    </Astronav>
+        <li class="border-b border-brand-light-gray md:border-0">
+          <a
+            href="/services"
+            aria-current={currentPath === '/services' ? true : undefined}
+            class:list={[
+              'block px-5 text-nav text-brand-primary',
+              'transition-colors hover:bg-brand-concrete md:p-0 md:hover:bg-transparent md:hover:underline',
+              'aria-current:bg-brand-concrete md:aria-current:bg-transparent md:aria-current:underline',
+              overlay && 'md:text-brand-concrete md:group-data-scrolled:text-brand-primary',
+            ]}
+          >
+            Services
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="/contact"
+            aria-current={currentPath === '/contact' ? true : undefined}
+            class:list={[
+              'block px-5 text-nav md:rounded-sm md:border',
+              'text-brand-primary transition-colors max-md:hover:bg-brand-concrete',
+              'aria-current:bg-brand-concrete md:aria-current:bg-transparent',
+              'md:hover:opacity-90',
+              overlay
+                ? [
+                    'md:border-brand-concrete md:text-brand-concrete',
+                    'md:group-data-scrolled:border-brand-primary md:group-data-scrolled:bg-brand-primary md:group-data-scrolled:text-white',
+                  ]
+                : 'md:border-brand-primary md:bg-brand-primary md:text-white md:aria-current:text-brand-primary',
+            ]}
+          >
+            Let’s talk
+          </a>
+        </li>
+      </ul>
+    </nav>
   </div>
 </header>
 
 <script>
-  let navbarPopoverController: AbortController | undefined
   let navScrollObserver: IntersectionObserver | undefined
-
-  const initializeNavbarPopover = () => {
-    const navbarRoot = document.querySelector<HTMLElement>('[data-navbar-root]')
-    const menuItems = navbarRoot?.querySelector<HTMLElement>('.astronav-items')
-
-    if (!navbarRoot || !menuItems) {
-      return
-    }
-
-    menuItems.id ||= 'primary-navigation'
-
-    navbarPopoverController?.abort()
-    navbarPopoverController = new AbortController()
-    const { signal } = navbarPopoverController
-
-    const menuButton = () => document.getElementById('astronav-menu')
-    const isOpen = () => !menuItems.classList.contains('hidden')
-
-    const syncExpanded = () => {
-      const button = menuButton()
-      button?.setAttribute('aria-controls', menuItems.id)
-      button?.setAttribute('aria-expanded', String(isOpen()))
-    }
-
-    const closeMenu = (restoreFocus = false) => {
-      if (!isOpen()) {
-        return
-      }
-
-      menuButton()?.click()
-      syncExpanded()
-
-      if (restoreFocus) {
-        menuButton()?.focus()
-      }
-    }
-
-    document.addEventListener(
-      'click',
-      (event) => {
-        if (!(event.target instanceof Element)) {
-          return
-        }
-
-        if (
-          event.target.closest('#astronav-menu') ||
-          event.target.closest('#primary-navigation a')
-        ) {
-          queueMicrotask(syncExpanded)
-        }
-      },
-      { signal },
-    )
-
-    document.addEventListener(
-      'pointerdown',
-      (event) => {
-        if (event.target instanceof Node && !navbarRoot.contains(event.target)) {
-          closeMenu()
-        }
-      },
-      { signal },
-    )
-
-    document.addEventListener(
-      'keydown',
-      (event) => {
-        if (event.key !== 'Escape') {
-          return
-        }
-
-        closeMenu(true)
-      },
-      { signal },
-    )
-
-    syncExpanded()
-  }
 
   const initializeNavScroll = () => {
     const nav = document.querySelector<HTMLElement>('[data-nav-overlay]')
@@ -213,11 +144,6 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/'
     navScrollObserver.observe(sentinel)
   }
 
-  const initializeNavbar = () => {
-    initializeNavbarPopover()
-    initializeNavScroll()
-  }
-
-  document.addEventListener('astro:after-swap', initializeNavbar)
-  initializeNavbar()
+  document.addEventListener('astro:after-swap', initializeNavScroll)
+  initializeNavScroll()
 </script>
