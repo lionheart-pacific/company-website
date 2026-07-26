@@ -9,7 +9,9 @@
     "dev": "node_modules/.bin/astro dev",
     "build": "node_modules/.bin/astro build",
     "preview": "node_modules/.bin/astro preview",
-    "astro": "node_modules/.bin/astro"
+    "astro": "node_modules/.bin/astro",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "@astrojs/react": "^5.0.7",
@@ -19,9 +21,14 @@
     "@types/react-dom": "^19.2.3",
     "astro": "^6.4.5",
     "astro-navbar": "^2.4.0",
+    "clsx": "^2.1.1",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "sharp": "^0.35.0",
     "tailwindcss": "^4.3.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.6",
+    "prettier-plugin-astro": "^0.14.1"
   }
 }

@@ -1,42 +1,43 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @font-face {
-    font-family: 'Monley';
-    src: url('../assets/fonts/monley.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Monley';
+  src: url('../assets/fonts/monley.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    src: url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap') format('woff');
-    font-family: "Figtree";
-    font-weight: 300 900;
-    font-style: normal;
+  src: url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap')
+    format('woff');
+  font-family: 'Figtree';
+  font-weight: 300 900;
+  font-style: normal;
 }
 
 @theme {
-    --color-brand-primary: #012B5D;
-    --color-brand-ink: #1A1A1A;
-    /*header and block background*/
-    --color-brand-concrete: #F2F2F2;
-    /*divider*/
-    --color-brand-light-gray: #E0E0E5;
-    /*text dark gray*/
-    --color-brand-mid-gray: #8C94A1;
-    /*text dark gray*/
-    --color-brand-dark-gray: #5C6675;
+  --color-brand-primary: #012b5d;
+  --color-brand-ink: #1a1a1a;
+  /*header and block background*/
+  --color-brand-concrete: #f2f2f2;
+  /*divider*/
+  --color-brand-light-gray: #e0e0e5;
+  /*text dark gray*/
+  --color-brand-mid-gray: #8c94a1;
+  /*text dark gray*/
+  --color-brand-dark-gray: #5c6675;
 
-    --font-logo: 'Monley';
-    --font-Figtree: 'Figtree';
+  --font-logo: 'Monley';
+  --font-Figtree: 'Figtree';
 
-    /*Sample from service page*/
-    /*Product development, as an ongoing capability.*/
-    --text-h1: 64px;
-    /*paragraph under h1*/
-    --text-subtitle1: 20px;
-    /*Product Development*/
-    --text-h2: 44px;
-    /*SERVICES*/
-    --text-overline: 13px;
+  /*Sample from service page*/
+  /*Product development, as an ongoing capability.*/
+  --text-h1: 64px;
+  /*paragraph under h1*/
+  --text-subtitle1: 20px;
+  /*Product Development*/
+  --text-h2: 44px;
+  /*SERVICES*/
+  --text-overline: 13px;
 }
