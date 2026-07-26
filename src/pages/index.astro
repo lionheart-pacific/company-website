@@ -7,60 +7,63 @@ import LetsTalkSection from "../components/LetsTalkSection.astro";
 <Layout hasNavbar={false}>
 	<HeroSection/>
 	<section class="flex flex-col
-	px-6 py-11 gap-4
-	md:p-24 md:gap-5">
-		<div class="flex flex-col border-b-brand-light-gray border-b gap-4 pb-7">
-			<div class="text-overline uppercase text-brand-primary">
-				Lionheart Pacific
+	px-6 py-11 gap-10
+	md:px-24 md:py-30 md:gap-24">
+		<div class="flex flex-col gap-4 md:gap-12">
+			<h2 class="text-2xl md:text-h2 font-semibold text-brand-ink">
+				Business-critical software needs stewardship
+			</h2>
+			<div class="flex flex-col gap-4 md:gap-7">
+				<p class="text-sm md:text-subtitle1 text-brand-dark-gray">
+					Whether you’re building a new product, scaling an established platform, or maintaining the systems
+					your business depends on, successful software requires more than implementation. It needs a partner
+					that understands the product, practices principled engineering, and stays invested in its long-term
+					success.
+				</p>
+				<a href="/practices" class="text-sm md:text-base font-medium text-brand-primary">
+					Learn how we work&ensp;→
+				</a>
 			</div>
-			<div class="text-2xl md:text-h2">
-				We’re unusually good at building software.
-			</div>
-			<div class="text-sm md:text-subtitle1 font-normal text-brand-dark-gray">
-				That isn’t luck. It comes from how we work — pairing, test-driven development, continuous delivery, and
-				engineers who think about product and design. These are the practices that separate excellent teams from
-				merely competent ones.
-			</div>
-			<a href="/practices" class="text-overline text-brand-primary">
-				See how we work →
-			</a>
 		</div>
-		<div class="flex flex-col gap-4">
-			<div class="text-2xl md:text-h2">
-				And it’s built to last.
+		<hr class="border-brand-light-gray"/>
+		<div class="flex flex-col gap-4 md:gap-12">
+			<h2 class="text-2xl md:text-h2 font-semibold text-brand-ink">
+				Designed to deliver
+			</h2>
+			<div class="flex flex-col gap-4 md:gap-7">
+				<p class="text-sm md:text-subtitle1 text-brand-dark-gray">
+					Ambitious outcomes are rarely achieved through a series of short projects. That’s why Lionheart
+					Pacific is built around long-term relationships, stable teams, and experienced, cross-functional
+					engineers. We deliver the quality you’d expect from a premium engineering firm, at a cost you can
+					sustain.
+				</p>
+				<a href="/services" class="text-sm md:text-base font-medium text-brand-primary">
+					See our services&ensp;→
+				</a>
 			</div>
-			<div class="text-sm md:text-subtitle1 text-brand-dark-gray">
-				You get the quality you’d expect from a premium firm — at a cost you can sustain for the long run. It comes from stable, dedicated teams; a delivery model built to last; and engineers in Thailand working with a U.S.-based Delivery Lead who stays close to your priorities.
-			</div>
-			<a href="/practices#how-we-build" class="text-overline text-brand-primary">
-				Our approach  →
-			</a>
-		</div>
-	</section>
-	<section class="flex flex-col
-	px-6 py-11 gap-4
-	md:p-24
-	border-t-brand-light-gray border-t">
-		<div class="flex flex-col gap-4">
-			<div class="text-overline uppercase">
-				What we do
-			</div>
-			<div class="text-2xl md:text-h2">
-				Product Development
-			</div>
-			<div class="text-sm md:text-subtitle1 text-brand-dark-gray">
-				A team that takes ownership of meaningful work alongside you — without you building and managing a software organization to do it.
-			</div>
-			<div class="text-sm md:text-subtitle1 text-brand-mid-gray">
-				For organizations where software has become core to the business — and who want a team they can hand it to, that stays aligned with their priorities.
-			</div>
-			<a href="/services" class="text-overline text-brand-primary">
-				Explore services  →
-			</a>
 		</div>
 	</section>
-
-
-	<LetsTalkSection/>
-	<!--<Services/>-->
+	<section class="bg-brand-concrete flex flex-col
+	px-6 py-11 gap-4
+	md:px-24 md:py-30 md:gap-12">
+		<h2 class="text-2xl md:text-h2 font-semibold text-brand-ink">
+			A trusted partner
+		</h2>
+		<div class="flex flex-col gap-4 md:gap-7">
+			<blockquote class="border-l-4 border-brand-primary pl-4 md:pl-7">
+				<p class="text-sm md:text-[22px] md:leading-[34px] italic text-brand-dark-gray">
+					Partnering with Lionheart Pacific has been one of the best decisions we’ve made. They bring
+					thoughtful judgment, real ownership, and a depth of experience that’s difficult to find. We’ve
+					trusted them with software that’s critical to our business, and they’ve consistently been invested
+					in our long-term success as if it were their own.
+				</p>
+			</blockquote>
+			<div class="text-sm md:text-base">
+				<div class="font-semibold text-brand-ink">John Doe, Co-Founder</div>
+				<div class="text-brand-mid-gray">ACME LLC — Inc. 5000, 2025 &amp; 2026</div>
+			</div>
+		</div>
+	</section>
+	<LetsTalkSection
+			body="What are you building? We’d love to learn about your business, the challenges you’re facing, and where you’re headed."/>
 </Layout>
