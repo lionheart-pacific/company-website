@@ -2,7 +2,7 @@
 dist/
 
 # generated types
-nasty-nadir/.astro/
+.astro/
 
 # dependencies
 node_modules/
