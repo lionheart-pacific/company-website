@@ -1,11 +1,12 @@
 import posthog from 'posthog-js'
+import { CONTEXT } from 'astro:env/client'
 
 const projectTokens = {
     production: 'phc_mc9pMBmjrDAouwUpxiFxB5vxi6xYmtD6Bdp2cEZLNZqT',
     development: 'phc_kmY74sqkf7hPaaDv89dYBzU9sQ56dUjzW4WySqZ3qfrY'
 }
 
-const isProduction = import.meta.env.PROD && import.meta.env.CONTEXT === 'production';
+const isProduction = import.meta.env.PROD && CONTEXT === 'production'
 
 if (!isProduction) {
     console.info('Initializing analytics with development project token.')
