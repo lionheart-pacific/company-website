@@ -1,0 +1,36 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "06:00"
+      timezone: Asia/Bangkok
+    commit-message:
+      prefix: chore
+    cooldown:
+      default-days: 7
+    groups:
+      astro:
+        patterns:
+          - "astro"
+          - "@astrojs/*"
+      tailwind:
+        patterns:
+          - "@tailwindcss/vite"
+          - "tailwindcss"
+      react:
+        patterns:
+          - "react"
+          - "react-dom"
+          - "@types/react"
+          - "@types/react-dom"
+      prettier:
+        patterns:
+          - "prettier"
+          - "prettier-plugin-astro"
+    ignore:
+      - dependency-name: typescript
+        versions:
+          - "7.0.x"
